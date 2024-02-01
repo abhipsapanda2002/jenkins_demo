@@ -8,8 +8,12 @@ pipeline {
         }
         stage('Build Code') {
             steps {
-                sh "chmod u+x Prog1.py"
-                sh "./Prog1.py"
+                 script {
+                    // Change to the directory where your scripts are located
+                    dir('path/to/your/repo') {
+                        sh 'chmod u+x Prog1.py'
+                        sh './Prog1.py'
+                    }
             }
         }
      stage('Test Code') {
