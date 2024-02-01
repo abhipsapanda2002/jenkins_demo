@@ -1,25 +1,25 @@
-pipeline { 
+pipeline {
     agent any
+    
     stages {
         stage('Clone Git') {
             steps {
                 git 'https://github.com/abhipsapanda2002/jenkins_demo.git'
             }
         }
+
         stage('Build Code') {
             steps {
-                 script {
-                    // Change to the directory where your scripts are located
-                    dir('path/to/your/repo') {
-                        sh 'chmod u+x Prog1.py'
-                        sh './Prog1.py'
-                    }
+                // Change to the directory where your scripts are located
+                sh 'chmod u+x Prog1.py'
+                sh './Prog1.py'
             }
         }
-     stage('Test Code') {
+
+        stage('Test Code') {
             steps {
-                sh "chmod u+x Test.py"
-                sh "./Test.py"
+                sh 'chmod u+x Test.py'
+                sh './Test.py'
             }
         }
     } 
