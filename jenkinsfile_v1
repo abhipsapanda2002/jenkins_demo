@@ -7,6 +7,16 @@ pipeline {
                 git 'https://github.com/abhipsapanda2002/jenkins_demo.git'
             }
         }
+        stage('Build Code') {
+            steps {
+                script {
+                checkout scm
+                sh 'chmod u+x Prog1.py'
+                sh './Prog1.py'
+            }
+        }
+    }
+
 
         stage('Build Code') {
             steps {
